@@ -11,7 +11,7 @@ const useWebRTC = (_roomId, user, onMeetingEnded, _enabled = true) => {
 
     const localStreamRef = useRef(null)
 
-    // initalize local camera stream if available in browser
+    // Initalize local camera stream if available in browser
     const initLocalStream = useCallback(async () => {
         try {
             if (navigator?.mediaDevices?.getUserMedia) {
@@ -38,7 +38,7 @@ const useWebRTC = (_roomId, user, onMeetingEnded, _enabled = true) => {
         }
     }, [initLocalStream])
 
-    // toggle local mic
+    // Toggle local mic
 
     const toggleAudio = ()=>{
         const newState = !audioEnabled;
@@ -52,7 +52,7 @@ const useWebRTC = (_roomId, user, onMeetingEnded, _enabled = true) => {
         })
     }
 
-    // toggle local camera
+    // Toggle local camera
 
     const toggleVideo = ()=>{
         const newState = !videoEnabled;
@@ -66,7 +66,7 @@ const useWebRTC = (_roomId, user, onMeetingEnded, _enabled = true) => {
         })
     }
 
-    // end meeting for everyone
+    // End meeting for everyone
     const endMeeting = useCallback(()=>{
         if (onMeetingEnded) {
             onMeetingEnded("Meeting Ended")
